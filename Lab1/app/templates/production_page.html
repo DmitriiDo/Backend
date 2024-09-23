@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <main class="container">
+
+        <h3  class="text-center">Черновая заявка на производство ракетоносителя</h3>
+
+        <span>Фактическая масса: {{ production.weight }}кг</span>
+
+        <h4 class="text-center">Комплектующие</h4>
+
+        <div class="cards-wrapper d-flex flex-column">
+
+            {% for vehicle in vehicles %}
+
+                {% include "vehicle_card.html" %}
+
+            {% endfor %}
+
+        </div>
+
+    </main>
+{% endblock content %}

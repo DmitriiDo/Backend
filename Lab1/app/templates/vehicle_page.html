@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <main class="container vehicle-page">
+
+        <div class="row">
+            <div class="col-6">
+                <img src="{{ vehicle.image }}" class="vehicle-image" alt=""/>
+            </div>
+            <div class="col-6 d-flex flex-md-column gap-md-3">
+
+                <h1>{{ vehicle.name }}</h1>
+
+                <span>Описание: {{ vehicle.description }}</span>
+
+                <span>Цена: {{ vehicle.price }}000 руб</span>
+
+                <span>Категория: {{ vehicle.category }}</span>
+
+                <a href="/" class="btn btn-primary my-4 w-25">
+                    Домой
+                </a>
+
+            </div>
+        </div>
+
+    </main>
+{% endblock content %}
