@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <main class="container">
+
+        <h3  class="text-center">Черноая заявка на производства</h3>
+
+        {% if production.weight %}
+            <span>Фактическая масса: {{ production.weight }}кг</span>
+        {% else %}
+            <span>Фактическая масса: не указано</span>
+        {% endif %}
+
+
+        <form method="post" action="{% url 'delete_production' production.id %}">
+            {% csrf_token %}
+                <button class="btn btn-danger delete-draft-production-btn" type="submit">
+                    Удалить
+                </button>
+            </a>
+        </form>
+
+        <h4 class="text-center">Комплектующие</h4>
+
+        <div class="cards-wrapper d-flex flex-column">
+
+            {% for vehicle in production.get_vehicles %}
+
+                {% include "vehicle_card.html" %}
+
+            {% endfor %}
+
+        </div>
+
+    </main>
+{% endblock content %}
